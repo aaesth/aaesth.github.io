@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>motd</title>
+</head>
+<body>
+  <h1>motd</h1>
+  <!--would it be "an motd" or would it be "a motd"-->
+  <div id="motd-container">
+    <p id="motd-message">loading... if this doesnt work dont make an issue, i dont give a fuck</p>
+    <button onclick="loadRandomMessage()">load another motd</button>
+  </div>
+    
+  <script>
+    function loadRandomMessage() {
+      var motdContainer = document.getElementById("motd-container");
+      var motdMessage = document.getElementById("motd-message");
+
+      // Fetch random message from messages.txt
+      fetch('messages.txt')
+        .then(response => response.text())
+        .then(data => {
+          var messages = data.split('\n').filter(Boolean); // Split by lines and remove empty lines
+          var randomMessage = messages[Math.floor(Math.random() * messages.length)];
+          motdMessage.textContent = randomMessage;
+        })
+        .catch(error => {
+          console.error('Error fetching messages:', error);
+          motdMessage.textContent = 'Error loading messages.';
+        });
+    }
+
+    // Load a random message when the page loads
+    window.onload = loadRandomMessage;
+  </script>
+
+</body>
+</html>
+

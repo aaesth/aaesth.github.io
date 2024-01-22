@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fingerprinting methods</title>
+</head>
+<body>
+  <small>fingerprinting is uniquely identifying browsers btw</small>
+  <h1>Fingerprinting via WebGL</h1>
+  <p id="renderer"></p>
+  <p id="vendor"></p>
+  <p id="version"></p>
+
+  <script>
+    function displayWebGLInformation() {
+      var canvas = document.createElement('canvas');
+      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+
+      if (gl) {
+        document.getElementById('renderer').textContent = 'Renderer: ' + gl.getParameter(gl.RENDERER);
+        document.getElementById('vendor').textContent = 'Vendor: ' + gl.getParameter(gl.VENDOR);
+        document.getElementById('version').textContent = 'Version: ' + gl.getParameter(gl.VERSION);
+      } else {
+        alert('turn on webgl');
+      }
+    }
+
+    function detectUserAgent() {
+      var userAgent = navigator.userAgent;
+      document.getElementById('userAgent').textContent = 'User Agent: ' + userAgent;
+      if (userAgent.includes('Chrome')) {
+        document.getElementById('browserInfo').textContent = 'You are using Google Chrome.';
+      } else if (userAgent.includes('Firefox')) {
+        document.getElementById('browserInfo').textContent = 'You are using Mozilla Firefox.';
+      } else if (userAgent.includes('Safari')) {
+        document.getElementById('browserInfo').textContent = 'You are using Apple Safari.';
+      } else if (userAgent.includes('Edge')) {
+        document.getElementById('browserInfo').textContent = 'You are using Microsoft Edge.';
+      } else {
+        document.getElementById('browserInfo').textContent = 'Your browser is not recognized.';
+      }
+    }
+        function detectTimezone() {
+      var userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      document.getElementById('timezoneInfo').textContent = 'Your timezone is: ' + userTimezone;
+    }
+        function detectPlugins() {
+      if (navigator.plugins && navigator.plugins.length > 0) {
+        var pluginList = '';
+
+        for (var i = 0; i < navigator.plugins.length; i++) {
+          pluginList += navigator.plugins[i].name + '<br>';
+        }
+
+        document.getElementById('pluginInfo').innerHTML = 'Installed plugins:<br>' + pluginList;
+      } else {
+        document.getElementById('pluginInfo').textContent = 'No plugins detected.';
+      }
+    }
+      function detectScreenResolution() {
+      var screenWidth = window.screen.width;
+      var screenHeight = window.screen.height;
+
+      document.getElementById('resolutionInfo').textContent = 'Screen Resolution: ' + screenWidth + ' x ' + screenHeight;
+    }
+    window.onload = function () {
+      displayWebGLInformation();
+      detectUserAgent();
+      detectTimezone();
+      detectPlugins();
+      detectScreenResolution();
+    };
+  </script>
+  
+  <h1>User Agent</h1>
+  <p id="userAgent"></p>
+  <p id="browserInfo"></p>
+  <h1>Timezone Fingerprinting</h1>
+  <p id="timezoneInfo"</p>
+  <h1>Browser plugins via navigator.plugins</h1>
+  <p id=pluginInfo></p>
+  <h1>Screen Resolution</h1>
+  <p id=resolutionInfo></p>
+</body>
+</html>
+

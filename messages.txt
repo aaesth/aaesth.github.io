@@ -1,0 +1,10 @@
+motd1
+motd2
+motd3
+motd4
+motd5
+motd6
+motd7
+motd8
+motd9
+motd10

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html "forkbomb"</title>
+  <script>
+    let popupCount = 0;
+
+    function openPopup() {
+      if (popupCount < 9000) { // Stops at 9000
+        window.open(location.href, '_blank', 'width=400,height=400');
+        popupCount++;
+        setTimeout(openPopup, 1); // Open a new popup after 1 millisecond
+      } else {
+        alert('9000 popups achieved');
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>popup generator</h1>
+  <p>click the button to get 9000 popups opened</p>
+  <p>some browsers might limit the number opened such as firefox</p>
+  <p>compatibility: chromium=yes firefox=no edge=yes</p>
+    <img src="assets/100.png"/>
+    <p>a7b841a852bca4bec44447b5e17d140eacd2df828a127420996205c7b9833a9d036ada3deff88611220966b31771969b0195818858ed806acb975129f49bca41  forkbomb.html, monospace 1/20/24</p>
+  <button onclick="openPopup()">button</button>
+</body>
+</html>
+

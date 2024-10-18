@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repo Tree</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            margin-left: 20px;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>files -- hey im like really sleepy right now its like 4 am so i had chatgpt write the codefor this one</h1>
+    <ul id="repo-tree"></ul>
+
+    <script>
+        const owner = "aaesth";  // Replace with your GitHub username
+        const repo = "files";  // Replace with your repository name
+        const branch = "main";  // Replace with your default branch
+
+        async function fetchRepoTree() {
+            const apiUrl = `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`;
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            const tree = data.tree;
+
+            const rootUl = document.getElementById('repo-tree');
+            buildTree(rootUl, tree);
+        }
+
+        function buildTree(ulElement, tree) {
+            const folders = {};
+
+            tree.forEach(item => {
+                const parts = item.path.split('/');
+                let current = folders;
+
+                parts.forEach((part, index) => {
+                    if (!current[part]) {
+                        current[part] = {};
+                    }
+
+                    if (index === parts.length - 1) {
+                        current[part] = item;
+                    }
+
+                    current = current[part];
+                });
+            });
+
+            createTreeUI(ulElement, folders);
+        }
+
+        function createTreeUI(parentUl, folder) {
+            Object.keys(folder).forEach(key => {
+                const li = document.createElement('li');
+                parentUl.appendChild(li);
+
+                if (folder[key].type === 'blob') {
+                    const fileLink = document.createElement('a');
+                    fileLink.href = `https://raw.githubusercontent.com/aaesth/${repo}/${branch}/${folder[key].path}`;
+                    fileLink.textContent = key;
+                    li.appendChild(fileLink);
+                } else {
+                    li.textContent = key;
+                    const subUl = document.createElement('ul');
+                    li.appendChild(subUl);
+                    createTreeUI(subUl, folder[key]);
+                }
+            });
+        }
+
+        fetchRepoTree();
+    </script>
+</body>
+</html>

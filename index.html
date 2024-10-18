@@ -7,7 +7,7 @@
       var motdMessage = document.getElementById("motd-message");
 
       // Fetch random message from messages.txt
-      fetch('legacy/motd.txt')
+      fetch("assets/motd.txt")
         .then(response => response.text())
         .then(data => {
           var messages = data.split('\n').filter(Boolean); // Split by lines and remove empty lines
@@ -23,6 +23,7 @@
     // Load a random message when the page loads
     window.onload = loadRandomMessage;
     </script>
+    <link rel="stylesheet" href="common.css">
   <style>
   @import url('https://fonts.cdnfonts.com/css/inconsolata-2');
   hr {
@@ -36,11 +37,14 @@
  body {
   background-color: #1e1e2e;
   color: #cdd6f4;
-  font-family: 'Inconsolata', sans-serif;
+  font-family: suckmyballs2;
+  letter-spacing: -2px;
  }
  .nyaa {
   display: flex;
   justify-content: center;
+  font-family: suckmyballs;
+  letter-spacing: -2px;
  }
   .motd {
   display: flex;
@@ -55,28 +59,35 @@
   a {
     color: #cba7f0;
   }
+  .seperate {
+  width: 100%;
+  height: 32px;
+  background-image: url(assets/seperate.png);
+}
+.seperate2 {
+  width: 100%;
+  height: 32px;
+  background-image: url(assets/seperate2.png);
+}
   </style>
   <body>
     <header class=nyaa>
-      <h1>aaesth.github.io</h1><h2>&nbsp;home</h2> <br>
+        <h1 style="letter-spacing: -6.67px;font-style: italic;font-weight: 100;">aaesth&nbsp;</h1> <br>
      <nav>
         <span><a href="/" class="active">home</a></span>
             <span>|</span>
-        <span><a href="legacy/index.html" class="other">legacy</a></span>
+        <span><a href="archive.html" class="other">archive</a></span>
             <span>|</span>
         <span><a href="tunes.html" class="other">tunes</a></span>
-            <span>|</span>
-        <span><a href="blog.html" class="other">blog (not yet)</a></span> 
      </nav>
     </header> <header class=motd>
     <p>motd:&nbsp;</p><p id="motd-message">
-  </header>
-  <hr> <header class=nyaa>
-    <p>AAAAAAAAAAAAAAAAA, AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA, AAAAAAAAAAAAAAAAAAAAAAAAA<sup> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</sup></p>
-  </header> <h2 class=nyaa>projects & other websites</h2><header class="nyaa"><a href="legacy/forkbomb.html">html "forkbomb"</a></header><a class="nyaa" href="legacy/fingerprinting.html">fingerprinting through webgl</a> <a class="nyaa" href="legacy/dots.html">arch linux<sup>btw</sup>&nbsp;dotfiles</a> </header>
-  <h2 class=nyaa>other projects on github</h2> <a class="nyaa" href="https://github.com/aaesth/aaesth.github.io">this websites src</a> <a class="nyaa" href="https://github.com/aaesth/decrypt-ps3-iso">decrypt-ps3-iso</a> <a class="nyaa" href="https://github.com/aaesth/fetch">fetch</a>
+  </header><br>
+  <header class="seperate"></header> <header class=nyaa>
+    <p>my personal website (crazy), this is yet another website to showcase my "projects"</p> 
+  </header> <h2 class=nyaa>projects & other websites</h2><header class="nyaa"><a href="legacy/forkbomb.html">html "forkbomb"</a></header><a class="nyaa" href="legacy/fingerprinting.html">fingerprinting through webgl</a> <a class="nyaa" href="legacy/dots.html">arch linux<sup>btw</sup>&nbsp;dotfiles</a> <header class="nyaa"><a href="homebrew-my-wiiu.html">homebrew my wii u</a></header><header class="nyaa"><a href="files.html">files</a></header></header>
+  <h2 class=nyaa>other projects on github</h2> <a class="nyaa" href="https://github.com/aaesth/aaesth.github.io">this websites src</a> <a class="nyaa" href="https://github.com/aaesth/decrypt-ps3-iso">decrypt-ps3-iso</a> <a class="nyaa" href="https://github.com/aaesth/fetch">fetch</a> <br> <header class="seperate"></header>
   <h2 class=nyaa>contacts</h2> <a class="nyaa" href="https://github.com/aaesth">github</a>
-  <br><br><br><br><a href="homebrew-my-wiiu.html"><h1 class="nyaa">homebrew my wii u</h1></a>
-  <br><br><br><br><a class="nyaa" href="archive.html"><h2>page archives</h2></a>
-  <hr> <header class=nyaa><img src="assets/88x31/bu12.gif"><img src="assets/88x31/arch.png"> <img src="assets/88x31/discord-no-way.gif"> <img src="assets/88x31/fckgoogle.gif"> <img src="assets/88x31/fftake.gif"> </header> <header class=nyaa> <img src="assets/88x31/hatemac_b.gif"> <img src="assets/88x31/hatems.gif"> <img src="assets/88x31/hatemsie.gif"> <img src="assets/88x31/hl.gif"> <img src="assets/88x31/homicide.gif"> </header><sup class=nyaa>JESSICAS are NOT allowed</sup></body>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <header class="seperate"></header> <header class=nyaa><img src="assets/88x31/bu12.gif"><img src="assets/88x31/arch.png"> <img src="assets/88x31/discord-no-way.gif"> <img src="assets/88x31/fckgoogle.gif"> <img src="assets/88x31/fftake.gif"> </header> <header class=nyaa> <img src="assets/88x31/hatemac_b.gif"> <img src="assets/88x31/hatems.gif"> <img src="assets/88x31/hatemsie.gif"> <img src="assets/88x31/hl.gif"> <img src="assets/88x31/homicide.gif"> </header></body>
 </html>

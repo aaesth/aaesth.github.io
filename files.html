@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Repo Tree</title>
+    <title>tree</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,13 +20,13 @@
     </style>
 </head>
 <body>
-    <h1>files -- hey im like really sleepy right now its like 4 am so i had chatgpt write the codefor this one</h1>
+    <h1>files</h1>
     <ul id="repo-tree"></ul>
 
     <script>
-        const owner = "aaesth";  // Replace with your GitHub username
-        const repo = "files";  // Replace with your repository name
-        const branch = "main";  // Replace with your default branch
+        const owner = "aaesth";
+        const repo = "files";
+        const branch = "main";
 
         async function fetchRepoTree() {
             const apiUrl = `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`;

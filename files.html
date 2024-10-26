@@ -46,7 +46,7 @@
 
             const rootUl = document.getElementById('repo-tree');
             const folderStructure = buildFolderStructure(tree);
-            createTreeUI(rootUl, folderStructure);
+            createTreeUI(rootUl, folderStructure, "");
         }
 
         function buildFolderStructure(tree) {
@@ -58,7 +58,10 @@
 
                 parts.forEach((part, index) => {
                     if (!current[part]) {
-                        current[part] = { __type: index === parts.length - 1 ? item.type : 'tree' };
+                        current[part] = {
+                            __type: index === parts.length - 1 ? item.type : 'tree',
+                            path: item.path
+                        };
                     }
                     current = current[part];
                 });
@@ -67,18 +70,20 @@
             return folders;
         }
 
-        function createTreeUI(parentUl, folder) {
+        function createTreeUI(parentUl, folder, fullPath) {
             Object.keys(folder).forEach(key => {
                 const li = document.createElement('li');
                 li.classList.add(folder[key].__type === 'tree' ? 'folder' : 'file');
                 li.textContent = key;
                 parentUl.appendChild(li);
 
+                const itemFullPath = `${fullPath}/${key}`.replace(/^\//, "");
+
                 if (folder[key].__type === 'tree') {
                     const subUl = document.createElement('ul');
                     subUl.classList.add('nested');
                     li.appendChild(subUl);
-                    createTreeUI(subUl, folder[key]);
+                    createTreeUI(subUl, folder[key], itemFullPath);
 
                     li.addEventListener('click', function (e) {
                         e.stopPropagation();
@@ -86,7 +91,7 @@
                     });
                 } else {
                     const fileLink = document.createElement('a');
-                    fileLink.href = `https://raw.githubusercontent.com/aaesth/${repo}/${branch}/${folder[key].path}`;
+                    fileLink.href = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${itemFullPath}`;
                     fileLink.textContent = key;
                     li.textContent = '';
                     li.appendChild(fileLink);

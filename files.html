@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tree</title>
+    <title>gitree</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,14 +13,24 @@
         }
         li {
             margin-left: 20px;
+            cursor: pointer;
         }
-        a {
-            text-decoration: none;
+        li.folder::before {
+            content: '📁 ';
+        }
+        li.file::before {
+            content: '📄 ';
+        }
+        .nested {
+            display: none;
+        }
+        .folder.open > .nested {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <h1>files</h1>
+    <h1>repo tree</h1>
     <ul id="repo-tree"></ul>
 
     <script>
@@ -35,10 +45,11 @@
             const tree = data.tree;
 
             const rootUl = document.getElementById('repo-tree');
-            buildTree(rootUl, tree);
+            const folderStructure = buildFolderStructure(tree);
+            createTreeUI(rootUl, folderStructure);
         }
 
-        function buildTree(ulElement, tree) {
+        function buildFolderStructure(tree) {
             const folders = {};
 
             tree.forEach(item => {
@@ -47,35 +58,38 @@
 
                 parts.forEach((part, index) => {
                     if (!current[part]) {
-                        current[part] = {};
+                        current[part] = { __type: index === parts.length - 1 ? item.type : 'tree' };
                     }
-
-                    if (index === parts.length - 1) {
-                        current[part] = item;
-                    }
-
                     current = current[part];
                 });
             });
 
-            createTreeUI(ulElement, folders);
+            return folders;
         }
 
         function createTreeUI(parentUl, folder) {
             Object.keys(folder).forEach(key => {
                 const li = document.createElement('li');
+                li.classList.add(folder[key].__type === 'tree' ? 'folder' : 'file');
+                li.textContent = key;
                 parentUl.appendChild(li);
 
-                if (folder[key].type === 'blob') {
+                if (folder[key].__type === 'tree') {
+                    const subUl = document.createElement('ul');
+                    subUl.classList.add('nested');
+                    li.appendChild(subUl);
+                    createTreeUI(subUl, folder[key]);
+
+                    li.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        li.classList.toggle('open');
+                    });
+                } else {
                     const fileLink = document.createElement('a');
                     fileLink.href = `https://raw.githubusercontent.com/aaesth/${repo}/${branch}/${folder[key].path}`;
                     fileLink.textContent = key;
+                    li.textContent = '';
                     li.appendChild(fileLink);
-                } else {
-                    li.textContent = key;
-                    const subUl = document.createElement('ul');
-                    li.appendChild(subUl);
-                    createTreeUI(subUl, folder[key]);
                 }
             });
         }

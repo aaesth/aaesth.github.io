@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gitree</title>
     <style>
         body {
@@ -91,7 +89,7 @@
                     });
                 } else {
                     const fileLink = document.createElement('a');
-                    fileLink.href = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${itemFullPath}`;
+                    fileLink.href = `https://m9ah.site/files/${itemFullPath}`;
                     fileLink.textContent = key;
                     li.textContent = '';
                     li.appendChild(fileLink);
@@ -101,5 +99,7 @@
 
         fetchRepoTree();
     </script>
+    <p>this website is for sharing files, ignore this website unless u want to download something idk</p>
+    <img src="assets/88x31/miku.jpeg">
 </body>
 </html>

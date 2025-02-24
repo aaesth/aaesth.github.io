@@ -1,4 +1,5 @@
-# aaesth.github.io
+# aaesth.github.io | m9ah.site
+note: this is for m9ah.site not i.m9ah.site, thats hosted with another server
 website
 
 # how to self host

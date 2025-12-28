@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aesth.cc</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+    function loadRandomMessage() {
+      var motdContainer = document.getElementById("motd-container");
+      var motdMessage = document.getElementById("motd-message");
+      fetch("assets/motd.txt")
+        .then(response => response.text())
+        .then(data => {
+          var messages = data.split('\n').filter(Boolean);
+          var randomMessage = messages[Math.floor(Math.random() * messages.length)];
+          motdMessage.innerHTML = randomMessage.replace(/\n/g, '<br>');
+        })
+        .catch(error => {
+          console.error('Error fetching messages:', error);
+          motdMessage.textContent = 'error loading motd';
+        });
+    }
+    window.onload = loadRandomMessage;
+    </script>
+</head>
+    <header class=nyaa>
+        <h1 style="letter-spacing: -6.67px;font-style: italic;font-weight: 100;">aesth&nbsp;</h1> <br>
+     <nav>
+        <span><a href="index.html" class="active">home</a></span>
+            <span>|</span>
+        <span><a href="archive.html" class="other">archive</a></span>
+            <span>|</span>
+        <span><a href="log.html" class="other">log</a></span>
+     </nav>
+    </header> <header class=motd>
+    <p style="letter-spacing: -0.59px;">motd -&nbsp;</p><p id="motd-message" style="letter-spacing: -0.4px;">
+  </header>
+  <header class="seperate"></header>
+  <h1 class="nyaa">changelog</h1>
+  <h2 class="nyaa">28/12/2025</h2>
+  <p class="nyaa">- added autoreact project to projects list</p>
+  <p class="nyaa">- actually put the website out, been procrastinating since 17/12</p>  <br>
+  <h2 class="nyaa">17/12/2025</h2>
+  <p class="nyaa">- redesigned website</p>
+  <p class="nyaa">- changed domain to aesth.cc</p>
+  <p class="nyaa">- added old website to archive</p>
+  <header class="seperate"></header>
+    <span class="nyaa">
+    <img src="assets/anythingbut.gif"> &nbsp;
+    <img src="assets/debian.gif"> &nbsp;
+    <img src="assets/gnu-linux.gif"> &nbsp;
+    <img src="assets/grapheneos.gif "> 
+  </span>
+</body>
+</html>

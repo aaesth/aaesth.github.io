@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aesth.cc</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+    function loadRandomMessage() {
+      var motdContainer = document.getElementById("motd-container");
+      var motdMessage = document.getElementById("motd-message");
+      fetch("assets/motd.txt")
+        .then(response => response.text())
+        .then(data => {
+          var messages = data.split('\n').filter(Boolean);
+          var randomMessage = messages[Math.floor(Math.random() * messages.length)];
+          motdMessage.innerHTML = randomMessage.replace(/\n/g, '<br>');
+        })
+        .catch(error => {
+          console.error('Error fetching messages:', error);
+          motdMessage.textContent = 'error loading motd';
+        });
+    }
+    window.onload = loadRandomMessage;
+    </script>
+</head>
+    <header class=nyaa>
+        <h1 style="letter-spacing: -6.67px;font-style: italic;font-weight: 100;">aesth&nbsp;</h1> <br>
+     <nav>
+        <span><a href="index.html" class="active">home</a></span>
+            <span>|</span>
+        <span><a href="archive.html" class="other">archive</a></span>
+            <span>|</span>
+        <span><a href="log.html" class="other">log</a></span>
+     </nav>
+    </header> <header class=motd>
+    <p style="letter-spacing: -0.59px;">motd -&nbsp;</p><p id="motd-message" style="letter-spacing: -0.4px;">
+  </header>
+  <header class="seperate"></header>
+  <h1 class="nyaa">projects</h1>
+  <p class="nyaa">here are some various projects ive worked on or am currently working on</p>
+  <p class="nyaa">i dont have much to show tho, i dont really code much anymore</p> <br>
+  <a class="nyaa" href="v2.html">v2 ultrakill</a> <p class="nyaa">the worst user bot for discord</p><br>
+  <a class="nyaa" href="https://github.com/aaesth/decrypt-ps3-iso">decrypt-ps3-iso</a> <p class="nyaa">decrypts the content of a ps3 games iso file using libray (linux only)</p> <br>
+  <a class="nyaa" href="https://github.com/aaesth/autoreact">autoreact</a> <p class="nyaa">a discord bot that auto reacts to messages</p><br>
+  <h1 class="nyaa">contact me</h1>
+  <p class="nyaa">you can contact me via email at ow4z@proton.me</p>
+  <p class="nyaa">or via discord at ow4z</p>
+  <header class="seperate"></header>
+  <span class="nyaa">
+    <img src="assets/anythingbut.gif"> &nbsp;
+    <img src="assets/debian.gif"> &nbsp;
+    <img src="assets/gnu-linux.gif"> &nbsp;
+    <img src="assets/grapheneos.gif "> 
+  </span>
+</body>
+</html>

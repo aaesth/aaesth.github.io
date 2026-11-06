@@ -1,56 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>aesth.cc</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-    function loadRandomMessage() {
-      var motdContainer = document.getElementById("motd-container");
-      var motdMessage = document.getElementById("motd-message");
-      fetch("assets/motd.txt")
-        .then(response => response.text())
-        .then(data => {
-          var messages = data.split('\n').filter(Boolean);
-          var randomMessage = messages[Math.floor(Math.random() * messages.length)];
-          motdMessage.innerHTML = randomMessage.replace(/\n/g, '<br>');
-        })
-        .catch(error => {
-          console.error('Error fetching messages:', error);
-          motdMessage.textContent = 'error loading motd';
-        });
-    }
-    window.onload = loadRandomMessage;
-    </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>v2 ultrakill · aesth.cc</title>
+<meta name="theme-color" content="#202020">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/favicon-180.png">
+<meta property="og:site_name" content="aesth.cc">
+<meta property="og:title" content="v2 ultrakill · aesth.cc">
+<meta property="og:description" content="aesth's corner of the internet">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aesth.cc/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/js/theme.js"></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/site.js" defer></script>
 </head>
-    <header class=nyaa>
-        <h1 style="letter-spacing: -6.67px;font-style: italic;font-weight: 100;">aesth&nbsp;</h1> <br>
-     <nav>
-        <span><a href="index.html" class="active">home</a></span>
-            <span>|</span>
-        <span><a href="archive.html" class="other">archive</a></span>
-            <span>|</span>
-        <span><a href="log.html" class="other">log</a></span>
-     </nav>
-    </header> <header class=motd>
-    <p style="letter-spacing: -0.59px;">motd -&nbsp;</p><p id="motd-message" style="letter-spacing: -0.4px;">
-  </header>
-  <header class="seperate"></header>
-  <h1 class="nyaa">v2 ultrakill</h1>
-  <p class="nyaa">this is an awful bot bruh</p>
-  <p class="nyaa">ai was used to fix problems and overall format the code a lil nicer</p>
-  <a href="https://cdn.aesth.cc/img/v2.7z"><p class="nyaa">download</p></a>
-  <header class="nyaa">
-    <img src="http://cdn.aesth.cc/img/vesktop_HNmhuviWkh.png"><br>
-    </header>
-    <p class="nyaa">theres ocr and image to gif but they dont show cuz the asteriesk hid them and i didnt know that happens</p>
-      <header class="seperate"></header>
-    <span class="nyaa">
-    <img src="assets/anythingbut.gif"> &nbsp;
-    <img src="assets/debian.gif"> &nbsp;
-    <img src="assets/gnu-linux.gif"> &nbsp;
-    <img src="assets/grapheneos.gif "> 
-  </span>
+<body>
+
+<div class="top"></div>
+<div class="bar">
+  <span class="brand">aesth<b>.cc</b></span>
+  <span class="grow"></span>
+  <a href="/">home</a>
+  <a href="/log.html">log</a>
+  <a href="/files.html">files</a>
+  <a href="/guestbook.html">guestbook</a>
+  <a href="/uses.html">uses</a>
+  <a href="/archive/">archive</a>
+</div>
+
+<main class="page narrow" style="max-width: 760px">
+  <div class="stack">
+    <section class="panel">
+      <div class="head"><span class="grow">v2 ultrakill</span><span class="tag">bot</span></div>
+      <div class="body">
+        <p>this is an awful bot bruh</p>
+        <p class="dim">ai was used to fix problems and overall format the code a lil nicer</p>
+        <div class="sep"></div>
+        <a class="btn primary" href="https://cdn.aesth.cc/img/v2.7z" style="align-self: flex-start">download</a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="head">Screenshot</div>
+      <div class="body">
+        <img class="shot" src="https://cdn.aesth.cc/img/vesktop_HNmhuviWkh.png" alt="v2 ultrakill command list">
+        <p class="note">theres ocr and image to gif but they dont show cuz the asterisk hid them and i didnt know that happens</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="bar foot">
+  <span>&copy; aesth.cc</span>
+  <span id="updated" class="off"></span>
+  <span class="grow"></span>
+  <span id="themes" class="themes" aria-label="accent colour"></span>
+</div>
+
 </body>
 </html>

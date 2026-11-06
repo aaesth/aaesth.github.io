@@ -42,12 +42,12 @@
   .seperate {
   width: 100%;
   height: 32px;
-  background-image: url(assets/seperate.png);
+  background-image: url(../assets/seperate.png);
 }
 .seperate2 {
   width: 100%;
   height: 32px;
-  background-image: url(assets/seperate2.png);
+  background-image: url(../assets/seperate2.png);
 }
 footer {
 bottom: 0;

@@ -1,56 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>aesth.cc</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-    function loadRandomMessage() {
-      var motdContainer = document.getElementById("motd-container");
-      var motdMessage = document.getElementById("motd-message");
-      fetch("assets/motd.txt")
-        .then(response => response.text())
-        .then(data => {
-          var messages = data.split('\n').filter(Boolean);
-          var randomMessage = messages[Math.floor(Math.random() * messages.length)];
-          motdMessage.innerHTML = randomMessage.replace(/\n/g, '<br>');
-        })
-        .catch(error => {
-          console.error('Error fetching messages:', error);
-          motdMessage.textContent = 'error loading motd';
-        });
-    }
-    window.onload = loadRandomMessage;
-    </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>log · aesth.cc</title>
+<meta name="theme-color" content="#202020">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/favicon-180.png">
+<meta property="og:site_name" content="aesth.cc">
+<meta property="og:title" content="log · aesth.cc">
+<meta property="og:description" content="aesth's corner of the internet">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aesth.cc/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/js/theme.js"></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/site.js" defer></script>
 </head>
-    <header class=nyaa>
-        <h1 style="letter-spacing: -6.67px;font-style: italic;font-weight: 100;">aesth&nbsp;</h1> <br>
-     <nav>
-        <span><a href="index.html" class="active">home</a></span>
-            <span>|</span>
-        <span><a href="archive.html" class="other">archive</a></span>
-            <span>|</span>
-        <span><a href="log.html" class="other">log</a></span>
-     </nav>
-    </header> <header class=motd>
-    <p style="letter-spacing: -0.59px;">motd -&nbsp;</p><p id="motd-message" style="letter-spacing: -0.4px;">
-  </header>
-  <header class="seperate"></header>
-  <h1 class="nyaa">changelog</h1>
-  <h2 class="nyaa">28/12/2025</h2>
-  <p class="nyaa">- added autoreact project to projects list</p>
-  <p class="nyaa">- actually put the website out, been procrastinating since 17/12</p>  <br>
-  <h2 class="nyaa">17/12/2025</h2>
-  <p class="nyaa">- redesigned website</p>
-  <p class="nyaa">- changed domain to aesth.cc</p>
-  <p class="nyaa">- added old website to archive</p>
-  <header class="seperate"></header>
-    <span class="nyaa">
-    <img src="assets/anythingbut.gif"> &nbsp;
-    <img src="assets/debian.gif"> &nbsp;
-    <img src="assets/gnu-linux.gif"> &nbsp;
-    <img src="assets/grapheneos.gif "> 
-  </span>
+<body>
+
+<div class="top"></div>
+<div class="bar">
+  <span class="brand">aesth<b>.cc</b></span>
+  <span class="grow"></span>
+  <a href="/">home</a>
+  <a href="/log.html" class="on" aria-current="page">log</a>
+  <a href="/files.html">files</a>
+  <a href="/guestbook.html">guestbook</a>
+  <a href="/uses.html">uses</a>
+  <a href="/archive/">archive</a>
+</div>
+
+<main class="page narrow">
+  <div class="stack">
+    <section class="panel">
+      <div class="head">Changelog</div>
+      <div class="body flush">
+        <div class="entry">
+          <b>06/11/2026</b>
+          <ul>
+            <li>redesigned the website again</li>
+            <li>hella inspired by <a href="https://tripleware.dev/">tripleware.dev</a></li>
+            <li>moved the previous website to <a href="/archive/">archive</a></li>
+            <li>added discord status, recently updated repos, visitor counter and a theme switcher</li>
+            <li>added a <a href="/guestbook.html">guestbook</a> and a <a href="/uses.html">uses</a> page</li>
+            <li>new favicon</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <b>28/12/2025</b>
+          <ul>
+            <li>added autoreact project to projects list</li>
+            <li>actually put the website out, been procrastinating since 17/12</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <b>17/12/2025</b>
+          <ul>
+            <li>redesigned website</li>
+            <li>changed domain to aesth.cc</li>
+            <li>added old website to archive</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="bar foot">
+  <span>&copy; aesth.cc</span>
+  <span id="updated" class="off"></span>
+  <span class="grow"></span>
+  <span id="themes" class="themes" aria-label="accent colour"></span>
+</div>
+
 </body>
 </html>

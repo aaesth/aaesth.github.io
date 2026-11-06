@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>guestbook · aesth.cc</title>
+<meta name="theme-color" content="#202020">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/favicon-180.png">
+<meta property="og:site_name" content="aesth.cc">
+<meta property="og:title" content="guestbook · aesth.cc">
+<meta property="og:description" content="aesth's corner of the internet">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aesth.cc/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/js/theme.js"></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/site.js" defer></script>
+</head>
+<body>
+
+<div class="top"></div>
+<div class="bar">
+  <span class="brand">aesth<b>.cc</b></span>
+  <span class="grow"></span>
+  <a href="/">home</a>
+  <a href="/log.html">log</a>
+  <a href="/files.html">files</a>
+  <a href="/guestbook.html" class="on" aria-current="page">guestbook</a>
+  <a href="/uses.html">uses</a>
+  <a href="/archive/">archive</a>
+</div>
+
+<main class="page book">
+  <section class="panel">
+    <div class="head">Leave a note</div>
+    <div class="body">
+      <form id="note-form" novalidate autocomplete="off">
+        <label class="label" for="note-body">Note</label>
+        <textarea id="note-body" class="area" maxlength="500" rows="4" placeholder="say hi, no account needed"></textarea>
+        <p id="note-left" class="off">500 characters left</p>
+        <label class="label" for="note-handle">Name <span class="off">(optional)</span></label>
+        <input id="note-handle" class="field" type="text" maxlength="24" placeholder="anon">
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="sep"></div>
+        <button id="note-send" class="btn primary block" type="submit">send</button>
+        <p id="note-status" class="note" role="status" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="head"><span class="grow">Guestbook</span><span id="wall-count" class="dim"></span></div>
+    <div class="body flush">
+      <ul id="wall" class="list"></ul>
+      <p id="wall-empty" class="dim empty" hidden>no notes yet, be the first</p>
+      <button id="wall-more" class="btn block" type="button" hidden>load more</button>
+    </div>
+  </section>
+</main>
+
+<div class="bar foot">
+  <span>&copy; aesth.cc</span>
+  <span id="updated" class="off"></span>
+  <span class="grow"></span>
+  <span id="themes" class="themes" aria-label="accent colour"></span>
+</div>
+
+</body>
+</html>

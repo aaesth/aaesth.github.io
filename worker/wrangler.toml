@@ -1,0 +1,9 @@
+name = "aesth-api"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+# create the namespace with:  npx wrangler kv namespace create KV
+# then paste the id it prints below
+[[kv_namespaces]]
+binding = "KV"
+id = "09ae4df8733e49668564081b08037fa5"

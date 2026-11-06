@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>files · aesth.cc</title>
+<meta name="theme-color" content="#202020">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/favicon-180.png">
+<meta property="og:site_name" content="aesth.cc">
+<meta property="og:title" content="files · aesth.cc">
+<meta property="og:description" content="aesth's corner of the internet">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aesth.cc/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/js/theme.js"></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/site.js" defer></script>
+</head>
+<body>
+
+<div class="top"></div>
+<div class="bar">
+  <span class="brand">aesth<b>.cc</b></span>
+  <span class="grow"></span>
+  <a href="/">home</a>
+  <a href="/log.html">log</a>
+  <a href="/files.html" class="on" aria-current="page">files</a>
+  <a href="/guestbook.html">guestbook</a>
+  <a href="/uses.html">uses</a>
+  <a href="/archive/">archive</a>
+</div>
+
+<main class="page narrow" style="max-width: 760px">
+  <div class="stack">
+    <section class="panel">
+      <div class="head"><span class="grow">Public files</span><a class="dim" href="https://github.com/aaesth/files">github</a></div>
+      <div class="body">
+        <p>random stuff i host. click a name to see it on github, or download it directly</p>
+        <p id="files-updated" class="off"></p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="head"><span class="grow">aaesth/files</span><span id="files-count" class="dim"></span></div>
+      <div class="body flush files">
+        <div id="files"><p class="dim empty">loading…</p></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="bar foot">
+  <span>&copy; aesth.cc</span>
+  <span id="updated" class="off"></span>
+  <span class="grow"></span>
+  <span id="themes" class="themes" aria-label="accent colour"></span>
+</div>
+
+</body>
+</html>

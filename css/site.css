@@ -338,3 +338,11 @@ dialog.leave .row { display: flex; justify-content: flex-end; gap: 6px; margin-t
 .track.playing { background: color-mix(in srgb, var(--accent-lo) 12%, var(--panel)); }
 .side.eq { width: 14px; background: linear-gradient(var(--accent), var(--accent)) 0 100% / 3px 40% no-repeat, linear-gradient(var(--accent), var(--accent)) 5px 100% / 3px 80% no-repeat, linear-gradient(var(--accent), var(--accent)) 10px 100% / 3px 60% no-repeat; animation: eq .9s steps(3) infinite alternate; }
 @keyframes eq { 50% { background-size: 3px 90%, 3px 30%, 3px 100%; } 100% { background-size: 3px 60%, 3px 100%, 3px 30%; } }
+
+/* konami gravity mode */
+.gravity-tip {
+  position: fixed; left: 50%; top: 12px; transform: translateX(-50%); z-index: 5;
+  padding: 4px 10px; color: var(--text-dim); background: var(--box);
+  border: 1px solid var(--border); box-shadow: 0 0 0 1px var(--dark);
+  pointer-events: none;
+}
